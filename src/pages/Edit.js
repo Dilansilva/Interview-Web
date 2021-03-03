@@ -4,16 +4,15 @@ import { Form,
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import Article from "../components/Article";
+import NavBar from '../components/NavBar'
 
 const Edit = () => {
     return(
-        <div style={{padding: 10}}>
-            <Article
-                article="Sample Article 01"
-            />
-            <Article
-                article="Sample Article 02"
-            />
+        <div>
+            <NavBar/>{/*Navigation bar */}
+                <Article
+                    article="Sample Article 01"
+                />
         </div>
     );
 }
