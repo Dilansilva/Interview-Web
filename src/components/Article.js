@@ -6,7 +6,15 @@ import {Row,
         Col } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
+import {useHistory} from 'react-router-dom';//React Navigation
+
 const Article = (props) => {
+
+    const onClickHandler = (e) => {
+        e.preventDefault();
+        useHistory.push('/update');
+    }
+
     return(
         <div style={{padding : '10px'}}>
             <Container>
@@ -17,7 +25,10 @@ const Article = (props) => {
                     </Col>
 
                     <Col sm={4}>
-                        <Button variant="outline-danger">
+                        <Button 
+                            variant="outline-danger"
+                            onClick={onClickHandler}
+                        >
                             Edit the contetnt
                         </Button>
                     </Col>

@@ -7,6 +7,7 @@ import {BrowserRouter as Router,
 import Home from './pages/Home';//iMPort home/add page
 import Edit from './pages/Edit';//import Edit page
 import Display from './pages/Display';//import Display Page
+import Update from './pages/Update';//Import update Page
 
 const App = () => {
   return(
@@ -25,6 +26,12 @@ const App = () => {
         <Route path="/retrieve">
           <Display/>
         </Route>
+          <Route path="/retrieve">
+            <Display/>
+          </Route>
+            <Route path="/update">
+              <Update/>
+            </Route>
                  
         </Switch>
       </div>
