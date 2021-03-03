@@ -1,9 +1,13 @@
 import React,{Component} from 'react';
+import { Button } from 'react-bootstrap';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
+import Home from './pages/Home';
 const App = () => {
   return(
     <div>
-      <h1>Hello World</h1>
+      
+          <Home/>
     </div>
   );
 }
