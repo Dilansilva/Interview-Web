@@ -1,5 +1,6 @@
 import React,{Component} from 'react';
-import { Form } from 'react-bootstrap';
+import { Form,
+        Button } from 'react-bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 import NavBar from '../components/NavBar'//import Navigation bar component
@@ -15,9 +16,13 @@ const Home = () => {
                                     Add Your Article Here
                                 </h1>
                             </Form.Label>
-                        <Form.Control as="textarea" rows={3} />
+                        <Form.Control as="textarea" rows={3} placeholder="Add your Article Here"/>
                     </Form.Group>
                 </Form>
+
+                    <Button variant="secondary" size="lg" block>
+                        Submit Article
+                    </Button>
         </div>
     );
 }
