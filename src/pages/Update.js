@@ -6,24 +6,43 @@ import {Jumbotron,  //Botstrap
 
 import NavBar from '../components/NavBar';//import Navigation bar
 
+import firebaseDb from '../firebase';//import some firbase things
+
 const Update = () => {
 
     const [content, setContent] = useState('');//state for article content
-    const [header, setheader] = useState('');//state for article header
+    const [header, setHeader] = useState('');//state for article header
 
     const [previousContent,setPreviousContent] = useState('');//state for previous content
     const [previousHeader, setPreviousHeader] = useState('');//state for previous header
 
-    useEffect(() => {
-
+    useEffect(() => {//function for retrieve data from fire store
+        firebaseDb.child('articles').on('value',snapshot=> {
+            if(snapshot.val() != null){ //if this is not null
+                setPreviousContent(snapshot.val().content);//set previous values
+                setPreviousHeader(snapshot.val().head);
+            }
+        })
     },[]);
 
-    const onClickUpdate = () => {
-        console.log('For Update Function');
+    const onClickUpdate = () => {//function for update article
+        // firebaseDb.child(`articles/${curentID}`).set(
+        //     {head : header,content : content},                       //
+        //         err => {                                             // This is the logic                
+        //             if(err){                                         // behind the update
+        //                 console.log('Error in update function');     //    
+        //             }
+        //         }
+        // )
     }
 
-    const onClickDelete = () => {
-        console.log('For Delete Function');
+    const onClickDelete = () => {//function for delete article
+        // firebaseDb.child(`articles/${curentID}`).remove(             //
+        //     err => {                                                 //This is the logic 
+        //         if(err)                                              //behind the delete
+        //             console.log('Error in Delete function');         //
+        //     }
+        // )
     }
 
     return(
@@ -41,16 +60,16 @@ const Update = () => {
                          <Form.Control //Text input for Add article header
                             type="text" 
                             placeholder="Add Article header Here"
-                            //onChange={(e) => {setHeader(e.target.value)}}
-                            defaultValue={header}
+                            onChange={(e) => {setHeader(e.target.value)}}
+                            defaultValue={previousHeader}
                         />
 
                     <Form.Control //Text input for Add article content
                         as="textarea" 
                         rows={3} 
                         placeholder="Add Article Content Here"
-                        //onChange={(e) => {setContent(e.target.value)}}
-                        defaultValue={content}
+                        onChange={(e) => {setContent(e.target.value)}}
+                        defaultValue={previousContent}
                     />
 
                 </Form.Group>
