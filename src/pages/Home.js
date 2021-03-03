@@ -20,7 +20,7 @@ const Home = () => {
                     </Form.Group>
                 </Form>
 
-                    <Button variant="secondary" size="lg" block>
+                    <Button variant="secondary" size="lg" block>{/* Submit Button    */}
                         Submit Article
                     </Button>
         </div>
