@@ -12,7 +12,7 @@ const Article = (props) => {
 
     const onClickHandler = (e) => {
         e.preventDefault();
-        useHistory.push('/update');
+        History.push('/update');
     }
 
     return(
@@ -27,7 +27,7 @@ const Article = (props) => {
                     <Col sm={4}>
                         <Button 
                             variant="outline-danger"
-                            onClick={onClickHandler}
+                            onClick={(e) => {onClickHandler(e)}}
                         >
                             Edit the contetnt
                         </Button>
