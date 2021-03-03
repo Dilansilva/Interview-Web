@@ -1,4 +1,5 @@
 import React from 'react';
+
 import {Row,
         Button,
         Container,
@@ -11,7 +12,8 @@ const Article = (props) => {
             <Container>
                 <Row>
                     <Col sm={8}>
-                        {props.article}
+                        <h2>{props.articleHeader}</h2>{/*Article Header props */}
+                            <p>{props.articleContent}</p>{/*Prop for Article content */}
                     </Col>
 
                     <Col sm={4}>
